@@ -46,6 +46,13 @@
         return this.active ? 'col-resize' : ''
       }
     },
+
+    watch: {
+      defaultPercent(val) {
+        Console.sören.log(val);
+      }
+    },
+
     data() {
       return {
         active: false,
@@ -59,12 +66,12 @@
     methods: {
       onClick() {
         if (!this.hasMoved) {
-          this.percent = 50
+          this.percent = 50;
           this.$emit('resize')
         }
       },
       onMouseDown() {
-        this.active = true
+        this.active = true;
         this.hasMoved = false
       },
       onMouseUp() {
@@ -76,29 +83,29 @@
         }
 
         if (this.active) {
-          let offset = 0
-          let target = e.currentTarget
+          let offset = 0;
+          let target = e.currentTarget;
           if (this.split === 'vertical') {
             while (target) {
-              offset += target.offsetLeft
+              offset += target.offsetLeft;
               target = target.offsetParent
             }
           } else {
             while (target) {
-              offset += target.offsetTop
+              offset += target.offsetTop;
               target = target.offsetParent
             }
           }
 
-          const currentPage = this.split === 'vertical' ? e.pageX : e.pageY
-          const targetOffset = this.split === 'vertical' ? e.currentTarget.offsetWidth : e.currentTarget.offsetHeight
-          const percent = Math.floor(((currentPage - offset) / targetOffset) * 10000) / 100
+          const currentPage = this.split === 'vertical' ? e.pageX : e.pageY;
+          const targetOffset = this.split === 'vertical' ? e.currentTarget.offsetWidth : e.currentTarget.offsetHeight;
+          const percent = Math.floor(((currentPage - offset) / targetOffset) * 10000) / 100;
 
           if (percent > this.minPercent && percent < 100 - this.minPercent) {
             this.percent = percent
           }
 
-          this.$emit('resize')
+          this.$emit('resize');
           this.hasMoved = true
         }
       }
