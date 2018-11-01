@@ -49,7 +49,7 @@
 
     watch: {
       defaultPercent(val) {
-        Console.sören.log(val);
+        console.log(val);
       }
     },
 
