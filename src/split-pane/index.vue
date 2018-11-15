@@ -7,7 +7,7 @@
 
     <resizer :className="className" :style="{ [resizeType]: percent+'%'}" :split="split" @mousedown.native="onMouseDown" @click.native="onClick"></resizer>
 
-    <pane class="splitter-pane splitter-paneR" :split="split" :style="{ [type]: calc(100-percent+'%' - '11px')}">
+    <pane class="splitter-pane splitter-paneR" :split="split" :style="{ [type]: getStyle()}">
       <slot name="paneR"></slot>
     </pane>
 
@@ -108,6 +108,9 @@
           this.$emit('resize');
           this.hasMoved = true
         }
+      },
+      getStyle() {
+        return `calc(${100 - this.percent}% - 11px)`
       }
     }
   }
