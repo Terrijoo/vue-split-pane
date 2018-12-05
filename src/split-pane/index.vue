@@ -47,7 +47,7 @@
       },
       getStyle() {
         return `calc(${100 - this.percent}% - 11px)`
-      },
+      }
     },
 
     watch: {
@@ -111,7 +111,7 @@
           this.$emit('resize');
           this.hasMoved = true
         }
-      },
+      }
     }
   }
 </script>
