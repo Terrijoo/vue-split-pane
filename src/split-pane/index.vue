@@ -44,12 +44,15 @@
       },
       cursor() {
         return this.active ? 'col-resize' : ''
-      }
+      },
+      getStyle() {
+        return `calc(${100 - this.percent}% - 11px)`
+      },
     },
 
     watch: {
       defaultPercent(val) {
-        console.log(val);
+        this.percent = val;
       }
     },
 
@@ -109,9 +112,6 @@
           this.hasMoved = true
         }
       },
-      getStyle() {
-        return `calc(${100 - this.percent}% - 11px)`
-      }
     }
   }
 </script>
