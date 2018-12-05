@@ -7,7 +7,7 @@
 
     <resizer :className="className" :style="{ [resizeType]: percent+'%'}" :split="split" @mousedown.native="onMouseDown" @click.native="onClick"></resizer>
 
-    <pane class="splitter-pane splitter-paneR" :split="split" :style="{ [type]: getStyle()}">
+    <pane class="splitter-pane splitter-paneR" :split="split" :style="{ [type]: getStyle}">
       <slot name="paneR"></slot>
     </pane>
 
