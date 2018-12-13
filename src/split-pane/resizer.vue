@@ -55,6 +55,7 @@
 		background: #eee;
 		border-left: 1px solid #ddd !important;
 		border-right: 1px solid #ddd !important;
+		margin-left: 2px;
 	}
 
 	.splitter-pane-resizer.horizontal:before {
